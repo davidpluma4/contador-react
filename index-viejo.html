@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React CDN</title>
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    
+    <div id="root"></div>
+
+    <script type="text/babel">
+
+    /*class Saludo extends React.Component {  
+        render(){
+            return (
+                <h1>Hola mundo - Legacy(obsoleto)</h1>
+            )
+        }
+    }*/
+
+    const Saludo = () =>{
+        //return <h1>Hola mundo</h1>
+        return (
+            <ol>
+                <li>a</li>
+                <li>b</li>
+                <li>c</li>
+            </ol>
+        )
+    }
+
+    const Interpolar = () => {
+        //return <h1>Hola David</h1>;
+        //const nombre = prompt("Cual es tu nombre?")
+
+        /*return (
+            <div>
+                <h1>Hola {new Date().getFullYear()}</h1>
+                <hr/>
+            </div>
+            )*/
+
+        //const numero = 0;
+        const [numero, setNumero] = React.useState(0);
+        //console.log(numero)
+        setInterval( () => {
+            setNumero(numero + 1);
+        }, 1500);
+
+        return(
+            <div>
+                <h1>Numero: {numero}</h1>
+                <hr/>
+            </div>
+        )
+    };
+        //console.log(ReactDOM);
+        /*ReactDOM.render(
+            //React.createElement("h1", null, "Hola mundo 2"), 
+           /* <div>
+                <ol>
+                    <li>david</li>
+                    <li>david</li>
+                    <li>david</li>
+                </ol>
+            </div>,*/
+          /*  <Saludo />,
+            document.getElementById("root")
+        );*/
+
+        ReactDOM.render(<Interpolar />, document.getElementById("root"));
+
+    </script>
+
+</body>
+</html>
